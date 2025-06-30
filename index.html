@@ -1,0 +1,59 @@
+
+<script type="importmap">
+  {
+    "imports": {
+      "@google/genai": "https://esm.sh/@google/genai@^0.7.0"
+    }
+  }
+  </script>
+  <!-- Add Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <div class="container">
+    <h1>塔羅牌占卜</h1>
+    <p id="instructionText">
+      選擇下方的占卜牌陣，然後從牌堆中選擇對應數量的塔羅牌以獲得指引。
+    </p>
+    
+    <div class="gameplay-selector">
+      <label for="gameplaySelect">選擇占卜牌陣：</label>
+      <select id="gameplaySelect" aria-label="選擇占卜牌陣">
+        <option value="single">單張牌指引 (選擇1張)</option>
+        <option value="threeCard">三張牌陣 (過去-現在-未來 - 選擇3張)</option>
+      </select>
+    </div>
+
+    <div id="cardSelectionArea" class="card-selection-area">
+      <!-- Face-down cards will be generated here -->
+    </div>
+
+    <div id="selectedCardsDisplayArea" class="tarot-cards-layout-area">
+      <!-- Selected cards will be shown here before interpretation -->
+    </div>
+    
+    <button id="getInterpretationButton">開始占卜</button>
+    <div id="loadingMessage" class="loading-message" role="status" aria-live="polite"></div>
+    
+    <div id="interpretationDisplayArea" class="tarot-card-interpretation-area">
+      <!-- AI interpretation will be shown here -->
+    </div>
+
+    <div id="chatInterface" class="chat-interface" style="display: none;">
+      <h2>與AI深入交流</h2>
+      <div id="chatHistoryArea" class="chat-history-area" role="log" aria-live="polite">
+        <!-- Chat messages will appear here -->
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="輸入你的問題..." aria-label="聊天輸入框">
+        <button id="sendChatMessageButton">發送訊息</button>
+      </div>
+    </div>
+
+  </div>
+  <footer>
+    <p>塔羅牌解讀由 Gemini API 提供支援。</p>
+  </footer>
+<link rel="stylesheet" href="/index.css">
+<script type="module" src="/index.tsx"></script>
